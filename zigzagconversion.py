@@ -4,46 +4,25 @@
 
 class Solution(object):
     def convert(self, s, numRows):
-        row = 0
-        col = 0
         slen = len(s)
-        if numRows <= 0:
-            return
-        elif numRows == 1:
-            return s
-        else:
-            row = numRows
-            gap = numRows - 2
-            div = slen / (numRows + gap)
-            remainder = slen % (numRows + gap)
-
-            result = ''
-            if remainder == 0:
-                col = (1 + gap) * div
-            else:
-                if remainder <= numRows:
-                    col = (1 + gap) * div + 1
-                else:
-                    col = (1 + gap) * div + remainder % numRows + 1
-            ls = [([''] * col) for i in xrange(row)]
-            count = slen - 1
-            for i in xrange(col):
-                if i % (gap + 1) == 0:
-                    for j in xrange(row):
-                        if count > 0:
-                            ls[j][i] = s[count]
-                            count -= 1
-                else:
-                    for j in xrange(row - 1, -1, -1):
-                        if (j + i) % (numRows - 1) == 0:
-                            if count > 0:
-                                ls[j][i] = s[count]
-                                count -= 1
-            for i in xrange(row):
-                for j in xrange(col):
-                    if ls[i][j] != '':
-                        result += ls[i][j]
+        result = ""
+        if slen == 0 or numRows <= 0:
             return result
+        elif numRows == 1:
+            result = s
+        else:
+            count = 0
+            step = 2 * (numRows - 1)
+            for i in range(numRows):
+                gap = step - 2 * i
+                for j in range(i, slen, step):
+                    result += s[j]
+                    count += 1
+                    if gap > 0 and gap < step and j + gap < slen and count < slen:
+                        result += s[j + gap]
+                        count += 1
+        return result
+
 
 if __name__ == "__main__":
     ss = Solution()
