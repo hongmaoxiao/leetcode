@@ -14,3 +14,4 @@ if __name__ == '__main__':
     souletion = Solution()
     res = souletion.twoSum([3, 2, 4], 6)
     print res
+
