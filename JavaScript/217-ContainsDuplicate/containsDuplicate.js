@@ -5,16 +5,14 @@
 
 function containsDuplicate(nums) {
   const obj = {};
-  let res = false;
 
   for (let i = 0; i < nums.length ; i++) {
-    if (obj[nums[i]] !== undefined) {
-      res = true;
-      break;
+    if (obj[nums[i]]) {
+      return true;
     }
 
     obj[nums[i]] = 1;
   }
 
-  return res;
+  return false;
 };
