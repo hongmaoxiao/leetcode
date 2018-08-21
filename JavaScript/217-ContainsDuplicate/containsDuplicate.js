@@ -3,7 +3,10 @@
  * @return {boolean}
  */
 
-function containsDuplicate(nums) {
+const containsDuplicate = (nums) => {
+  if (nums.length < 2) {
+    return false;
+  }
   const obj = {};
 
   for (let i = 0; i < nums.length ; i++) {
