@@ -5,18 +5,17 @@
 const firstUniqChar = (s) => {
     const obj = {};
     for (let i = 0; i < s.length; i++) {
-        console.log('obj[s[i]]:', obj[s[i]]);
         if (!obj[s[i]]) {
-            obj[s[i]] = i;
+          obj[s[i]] = {
+            count: 1,
+            index: i,
+          };
         } else {
-            delete obj[s[i]];
+          obj[s[i]].count++;
         }
     }
 
     const values = Object.values(obj);
-    console.log('values: ', values);
+    values = values.filter(o => o.count === 1).map(o => o.index);
     return values.length > 0 ? Math.min(...values) : -1;
 };
-
-// firstUniqChar("cc");
-// firstUniqChar("loveleetcode");
