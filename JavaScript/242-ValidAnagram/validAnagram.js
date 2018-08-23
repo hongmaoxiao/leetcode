@@ -29,5 +29,3 @@ const isAnagram = (s, t) => {
 
     return Object.keys(obj).length === 0;
 };
-
-console.log(isAnagram("anagram", "nagaram"));
