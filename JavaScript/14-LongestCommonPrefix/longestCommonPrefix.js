@@ -2,12 +2,6 @@
  * @param {string[]} strs
  * @return {string}
  */
-// Input: ["flower","flow","flight"]
-// Output: "fl"
-
-// Input: ["dog","racecar","car"]
-// Output: ""
-
 const longestCommonPrefix = (strs) => {
     if (strs.length === 0) {
         return '';
@@ -39,7 +33,3 @@ const allEqual = (arrs, str, j) => {
     }
     return true;
 };
-
-longestCommonPrefix(["flower","flow","flight"]);
-longestCommonPrefix(["dog","racecar","car"]);
-
