@@ -27,7 +27,7 @@ const isPrimes = (n) => {
         return false;
     }
 
-    const sqrt = Math.round(Math.sqrt(n));
+    const sqrt = Math.sqrt(n);
 
     for (let i = 3; i <= sqrt; i+=2) {
         if (n % i === 0) {
