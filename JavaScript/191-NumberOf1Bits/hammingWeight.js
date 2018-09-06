@@ -12,7 +12,5 @@ const hammingWeight = (n) => {
         n = Math.floor(n / 2);
     }
 
-    console.log('count: ', count);
-
     return count;
 };
