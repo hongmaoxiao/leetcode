@@ -36,5 +36,3 @@ const countNext = (str) => {
 
     return `${res}${repeat}${str[str.length - 1]}`
 };
-
-countAndSay(5);
